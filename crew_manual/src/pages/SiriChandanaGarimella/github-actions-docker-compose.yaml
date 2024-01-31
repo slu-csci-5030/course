@@ -1,0 +1,27 @@
+name: Verify Docker Compose Compatibility
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Build docker images
+        run: docker-compose build
+
+      - name: Run compatibility tests
+        run: |
+          docker-compose ps
+          docker-compose run test pytest app_test.py
+
+      # Add additional test steps as needed
+
+      - name: Share test results (optional)
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-results
+          path: ./test_results
