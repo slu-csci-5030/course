@@ -23,6 +23,7 @@ The test command, build steps, etc. could be more specific.
 Additional steps like security scanning could be included.
 Image tagging convention could be made more robust.
 
+I assume .yml is going to the CI/CD pipeline for my project which is going to use React and NodeJs. I assume that this will automate continuous integration and deployment.
 
 This README serves as a guide for contributors and deployment personnel, detailing assumptions, workflow steps, and considerations for production deployment.
 
