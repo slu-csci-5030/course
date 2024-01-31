@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: development
+    volumes:
+      - ./Backend:/usr/src/app
+    command: npm start
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    ports:
+      - "80:80"
+    environment:
+      NODE_ENV: development
+    volumes:
+      - ./Frontend:/usr/src/app
+    command: npm start
