@@ -1,0 +1,48 @@
+version: 2.1
+
+jobs: 
+    react-test:
+      docker:
+        - image: node:latest-browsers
+      environment:
+        NPM_CONFIG_PREFIX: "~/.npm-global"
+      steps:
+        - checkout
+        - run:
+            name: Install react Dependencies
+            command: cd ~/project/Frontend && npm install --force
+        - run: 
+            name: Run Frontend Testcases
+            command: cd ~/project/Frontend && npm run test -- --no-watch --no-progress --browsers=ChromeHeadless
+    
+    build_and_push:
+      docker:
+        - image: node:latest-browsers
+      steps:
+        - checkout
+        - setup_remote_docker:
+            version: 19.03.13
+        - run:
+            name: Build Docker Image
+            command: cd ~/project && docker build -t $DOCKERHUB_USERNAME/donationProject:v1 .
+        - run:
+            name: Authenticate with Docker Hub
+            command: cd ~/project && echo "$DOCKERHUB_PASS" | docker login --username $DOCKERHUB_USERNAME --password-stdin
+        - run:
+            name: Push Docker Image to Docker Hub
+            command: cd ~/project && docker push $DOCKERHUB_USERNAME/donationProject:v1
+
+workflows:
+    Testcases:
+      jobs:
+        - node/run:
+            pkg-manager: npm 
+            resource_class: large 
+            app-dir: ~/project/Backend 
+            npm-run: test
+
+        - react-test
+    
+    build_and_deploy:
+      jobs:
+        - build_and_push
