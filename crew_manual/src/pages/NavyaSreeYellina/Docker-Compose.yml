@@ -1,1 +1,11 @@
-
+version: '3'
+services:
+  web:
+    image: #base image that we are going to use#
+    ports:
+      - "8080:80"
+    depends_on:
+      - #All the dependencies#
+  Dependency1:
+    image: #Image for dependency
+    
