@@ -1,6 +1,6 @@
 ## Name: Navya Sree Yellina
 
-# **Docker Compose CI**
+# **CI/CD pipline**
 
 ### _**Assumptions**_
 The production deployment target is a Docker environment, either self-hosted or using a cloud provider.
