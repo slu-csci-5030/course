@@ -1,3 +1,27 @@
+# Project
+
+Author: Lalith Adithya Reddy Avuthu
+
+## Local Development Environment
+
+To set up the local development environment, follow these steps:
+
+1. Install Docker and Docker Compose.
+2. Clone the repository.
+3. Run `docker-compose up` in the project root.
+
+## Automated Testing
+
+GitHub Actions is configured for automated testing on push to the main branch.
+
+### Running in Production
+
+To run the application in a production-like environment, use the following command:
+
+```bash
+docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d
+
+
 # Astro Starter Kit: Basics
 
 ```sh
