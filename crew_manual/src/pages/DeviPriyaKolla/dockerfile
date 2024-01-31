@@ -1,1 +1,11 @@
+#  base image
+FROM node:14
 
+# Set working directory
+WORKDIR /usr/src/app
+
+# Copy the application code to the container
+COPY . /usr/src/app
+
+# Define the command to run the application
+CMD ["node", "#application#"]
