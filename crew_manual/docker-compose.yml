@@ -8,3 +8,6 @@ services:
       - ./app:/app
     environment:
       - NODE_ENV=development
+networks:
+
+volumes:
