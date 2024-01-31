@@ -1,0 +1,39 @@
+name: Continuous Integration
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    services:
+      docker:
+        image: docker:latest
+        options: --privileged
+          
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+        
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.rohitreddyy }}
+          password: ${{ secrets.R0h!tMD3d@ }}
+          
+      - name: Build and run Docker Compose for testing
+        run: |
+          docker-compose -f compose-dev.yaml -f docker-compose.test.yml build
+          docker-compose -f compose-dev.yaml -f docker-compose.test.yml up -d
+          docker-compose -f compose-dev.yaml -f docker-compose.test.yml exec app npm test
+        working-directory: ${{ github.workspace }}
+        
+      - name: Shutdown Docker Compose
+        run: docker-compose -f compose-dev.yaml -f docker-compose.test.yml down
+        working-directory: ${{ github.workspace }}
