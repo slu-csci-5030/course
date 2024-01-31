@@ -1,0 +1,28 @@
+# Build the Frontend
+FROM node:latest AS frontend-builder
+
+WORKDIR /usr/src/app
+
+RUN npm install -g @react/cli 
+
+COPY ./Frontend/package.json ./Frontend/package-lock.json ./
+RUN npm install
+COPY ./Frontend .
+RUN npm run build
+
+# Build the Backend
+FROM node:latest
+
+WORKDIR /usr/src/app
+
+COPY ./Backend/package.json ./Backend/package-lock.json ./
+RUN npm install
+
+COPY ./Backend .
+
+EXPOSE 3000
+
+COPY --from=frontend-builder /usr/src/app/build ./Frontend/build
+
+# Command to start the backend
+CMD ["npm", "start"]
