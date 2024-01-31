@@ -1,37 +1,11 @@
-# .github/workflows/test.yml
-
-name: Test
-
-on:
-  push:
-    branches:
-      - main
-
-jobs:
-  test:
-    runs-on: ubuntu-latest
-
-    services:
-      your-portfolio:
-        image: ubuntu:latest  # Use a basic image; we won't use it for hosting
-
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-
-      - name: Set up GitHub Pages
-        run: |
-          mkdir portfolio
-          curl -LJO https://xxender13.github.io/Portfolio/index.html
-          mv index.html portfolio/
-
-      - name: Install Dependencies
-        run: npm install
-
-      - name: Configure Test Output Logging
-        run: |
-          # Add commands to configure test output logging
-
-      - name: Run Tests
-        run: |
-          # Add commands to run your tests here
+version: '3'
+services:
+  your-service:
+    image: docker/welcome-to-docker:latest
+    ports:
+      - "80:80"
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - /path/to/nginx/conf/nginx.conf:/etc/nginx/nginx.conf
+    # Other production-specific configurations
