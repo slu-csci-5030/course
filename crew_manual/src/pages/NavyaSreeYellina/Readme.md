@@ -6,7 +6,7 @@
 The production deployment target is a Docker environment, either self-hosted or using a cloud provider.
 The Docker host has Docker Compose installed and can run Docker containers.
 The CI pipeline has access to registry secrets to push newly built images.
-This repository includes a GitHub Actions workflow named "Docker Compose CI." The workflow is triggered on each push to the main branch.
+This repository includes a GitHub Actions workflow named "CI/CD pipline." The workflow is triggered on each push to the main branch.
 ### **Workflow Steps**
 Run Test cases to ensure software integrity.
 In GitHub Actions -> checkout fetch the repository code.
