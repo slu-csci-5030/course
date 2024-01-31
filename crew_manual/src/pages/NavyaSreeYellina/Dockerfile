@@ -1,10 +1,10 @@
 
-#image name for base image
-FROM # baseimage name #
+#image name for running our react application
+FROM node:14-alpine as react-builder 
 # Set working directory
 WORKDIR /usr/src/app
 # Copy
-COPY #file name/folder of our working directory#
+COPY #node app#
 
 # run
-CMD [ #command, "#file name to run" ]
+CMD ["nginx", "-g", "daemon off;"]
