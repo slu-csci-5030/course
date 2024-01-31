@@ -1,0 +1,33 @@
+name: Docker Compose Testing
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    services:
+      app:
+        image: your_image_name
+        ports:
+          - 80:80
+        options: --name app
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Docker Compose
+        run: docker-compose -f compose-dev.yaml up -d
+
+      - name: Start Project
+        run: npm start
+
+      - name: Run tests
+        run: npm test
+
+      - name: Tear down Docker Compose
+        run: docker-compose -f compose-dev.yaml down
