@@ -1,0 +1,38 @@
+name: Docker Compose Testing
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    services:
+      db:
+        image: postgres:latest
+        env:
+          POSTGRES_USER: user
+          POSTGRES_PASSWORD: password
+          POSTGRES_DB: dbname
+        ports:
+          - 5432:5432
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Build and run Docker Compose services
+        run: docker-compose up -d
+
+      - name: Run tests
+        run: |
+          docker-compose exec your_service_name python manage.py test
+
+      - name: Stop Docker Compose services
+        run: docker-compose down
