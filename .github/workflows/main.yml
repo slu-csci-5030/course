@@ -3,7 +3,6 @@ name: Docker Build and Push
 on:
   push:
 
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -17,10 +16,10 @@ jobs:
 
       - name: Set up Docker
         run: |
-          sudo apt-get update
-          sudo apt-get install -y docker.io
-          sudo service docker start
-          sudo usermod -aG docker $USER
+          apt-get update
+          apt-get install -y docker.io
+          service docker start
+          usermod -aG docker $USER
           docker --version
           docker info
 
