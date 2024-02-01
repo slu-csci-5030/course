@@ -1,1 +1,15 @@
+Reflections about the last modules:
+In the last modules the architecture diagram, tech stacks, and prototypes.
+Architecture communicates structure.
 
+Architecture Diagram:
+An architecture diagram is a graphical representation that illustrates the components and relationships within a system.
+It helps stakeholders, including developers, architects, and project managers, to understand the design and structure of the system.
+Tech Stacks (Technology Stack):
+A technology stack refers to the combination of software, tools, and programming languages used to build and run a particular software application or system. 
+This includes the operating system, web server, database, programming languages, frameworks, libraries, and other technologies. 
+A tech stack is a crucial aspect of the architecture, as it defines the tools and technologies that will be employed to implement the system.
+Prototypes:
+Prototypes are early, often simplified versions of a system or a specific feature. 
+In the context of architecture, a prototype might be a mock-up or a working model that demonstrates how certain aspects of the system will function. 
+Prototypes are used for testing and validating design decisions before full-scale development begins.
