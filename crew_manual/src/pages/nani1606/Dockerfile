@@ -1,26 +1,52 @@
-# Build the Frontend
-FROM node:latest AS frontend-builder
+# # Build the Frontend
+# FROM node:latest AS frontend-builder
 
-WORKDIR /usr/src/app
+# WORKDIR /usr/src/app
 
-RUN npm install -g @react/cli 
+# RUN npm install -g @react/cli 
 
-COPY ./Frontend/package.json ./Frontend/package-lock.json ./
-RUN npm install
-COPY ./Frontend .
-RUN npm run build
+# COPY ./Frontend/package.json ./Frontend/package-lock.json ./
+# RUN npm install
+# COPY ./Frontend .
+# RUN npm run build
 
-# Build the Backend
+# # Build the Backend
+# FROM node:latest
+
+# WORKDIR /usr/src/app
+
+# COPY ./Backend/package.json ./Backend/package-lock.json ./
+# RUN npm install
+
+# COPY ./Backend .
+
+# EXPOSE 3000
+
+# # Command to start the backend
+# CMD ["npm", "start"]
+
 FROM node:latest
 
 WORKDIR /usr/src/app
 
-COPY ./Backend/package.json ./Backend/package-lock.json ./
-RUN npm install
+COPY ./Backend/package.json ./Backend/
+COPY ./Backend/package-lock.json ./Backend/
 
-COPY ./Backend .
+WORKDIR /usr/src/app/Backend
 
-EXPOSE 3000
+RUN npm install -f && npm install socket.io --save --force && npm install http-server -g
 
-# Command to start the backend
+WORKDIR /usr/src/app
+
+COPY ./Frontend/package.json ./Frontend/
+COPY ./Frontend/package-lock.json ./Frontend/
+
+RUN npm install -f
+
+COPY ./Backend ./Backend
+COPY ./Frontend ./Frontend
+
+EXPOSE 8080
+
 CMD ["npm", "start"]
+
