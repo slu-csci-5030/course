@@ -1,19 +1,20 @@
-FROM node:14
+# Use the official Node.js image with the desired version
+FROM node:21.6.1
 
-# Set the working directory to /app
+# Set the working directory inside the container
 WORKDIR /app
 
-# Copy package.json and package-lock.json to /app
+# Copy package.json and package-lock.json to the container
 COPY package*.json ./
 
-# Install app dependencies
+# Install dependencies
 RUN npm install
 
-# Bundle app source
+# Copy the rest of the application files to the container
 COPY . .
 
-# Expose the port your app runs on
+# Expose the port your app runs on (Astro default is 3000)
 EXPOSE 3000
 
-# Define the command to run your app
+# Start the application
 CMD ["npm", "start"]
