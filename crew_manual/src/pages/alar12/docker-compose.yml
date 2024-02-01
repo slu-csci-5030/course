@@ -49,3 +49,28 @@ workflows:
   build-and-deploy:
     jobs:
       - build-and-deploy
+
+# version: '3'
+
+# services:
+#   backend:
+#     build:
+#       context: .
+#       dockerfile: Dockerfile
+#     ports:
+#       - "3000:3000"
+#     environment:
+#       NODE_ENV: development
+#     volumes:
+#       - ./Backend:/crew_manual/src/pages/alar12/Dockerfile
+
+#   frontend:
+#     build:
+#       context: .
+#       dockerfile: Dockerfile
+#     ports:
+#       - "80:80"
+#     environment:
+#       NODE_ENV: development
+#     volumes:
+#       - ./Frontend:/crew_manual/src/pages/alar12/Dockerfile

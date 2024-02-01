@@ -1,4 +1,0 @@
-FROM node:14-alpine as react-builder 
-WORKDIR /usr/src/app
-COPY #node app#
-CMD ["nginx", "-g", "daemon off;"]
