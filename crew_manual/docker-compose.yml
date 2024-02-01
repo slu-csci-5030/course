@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  web:
+    image: nginx:latest
+    ports:
+      - "8080:80"
+    volumes:
+      - ./app:/app
+    environment:
+      - NODE_ENV=development
+  db:
+    image: postgres:latest
