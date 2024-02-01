@@ -22,7 +22,5 @@ COPY ./Backend .
 
 EXPOSE 3000
 
-COPY --from=frontend-builder /usr/src/app/build ./Frontend/build
-
 # Command to start the backend
 CMD ["npm", "start"]
