@@ -7,13 +7,3 @@ The `crew_manual` directory contains content for a statically generated website 
 New systems that students build are designated by our standards and regulations as `experimental` until their value is demonstrated, their engineering is validated, and safety is confirmed. As such, all new systems built in separate code repositories by small, dedicated teams. That said, the value that these experimental systems are intended to produce is vital for the long term success of our enterprise. Because of this, work on `experimental` systens not completed by the crew in the alloted time as well as work that does not meet our strict quality standards will result in demotion or more serious consequences, up to and including removal from the crew.
 
 Remember colleagues, "maintain course."
-
-#   Just a Second Connector
-
-## Author
-Sowmya Mutya
-
-## Assumptions for Production Deployment
-- Assumes a PostgreSQL database is available at `db:5432`.
-
-## Personal Reflections
