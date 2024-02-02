@@ -11,7 +11,7 @@ jobs:
 
     services:
       app:
-        image: your-app-image
+        image: psd
         ports:
           - "8080:80"
 
