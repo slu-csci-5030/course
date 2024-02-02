@@ -3,4 +3,4 @@ WORKDIR '/app'
 COPY package.json .
 RUN npm install
 COPY . .
-CMD ["npm", "start", "daemon off;"]
+CMD ["npm", "start", "&&", "npm", "run", "daemon off;"]
