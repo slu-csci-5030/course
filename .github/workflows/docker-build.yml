@@ -19,10 +19,10 @@ jobs:
       - name: Build Docker image
         run: |
           cd crew_manual
-          docker build -t nani1606/my-app .
+          docker build -t krishnani/my-app .
 
       - name: Log in to Docker Hub
         run: docker login -u krishnani -p Vaish@123
 
       - name: Push Docker image
-        run: docker push nani1606/my-app
+        run: docker push krishnani/my-app
