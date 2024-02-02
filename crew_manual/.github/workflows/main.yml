@@ -1,0 +1,28 @@
+name: Docker Build and Push
+
+on:
+  push:
+    branches:
+      - estimation-Vineeth0502-240129 
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Docker
+        run: docker --version
+
+      - name: Build Docker image
+        run: |
+          cd crew_manual
+          docker build -t Vineeth0502/my-astro-app .
+
+      - name: Log in to Docker Hub
+        run: docker login -u Vineeth0502 -p Vineeth@05
+
+      - name: Push Docker image
+        run: docker push Vineeth/my-astro-app
