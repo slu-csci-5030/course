@@ -1,0 +1,27 @@
+name: Docker Compose CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    services:
+      docker:
+        image: docker:20.10.9
+        command: ["sh", "-c", "sleep infinity"]
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Build and Test
+        run: |
+          docker-compose build
+          docker-compose up -d
+          docker-compose exec your_service_name ./run_tests.sh
+        env:
+          DOCKER_COMPOSE_VERSION: 1.29.2  # Set the version to match your local Docker Compose version
