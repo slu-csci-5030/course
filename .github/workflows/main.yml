@@ -22,7 +22,7 @@ jobs:
           docker build -t my-astro-app .
 
       - name: Log in to Docker Hub
-        run: docker login -u Vineeth0502 -p Vineeth@05
+        run: docker login -u vineeth173 -p Vineeth@05
 
       - name: Push Docker image
-        run: docker push Vineeth/my-astro-app
+        run: docker push vineeth173/my-astro-app
