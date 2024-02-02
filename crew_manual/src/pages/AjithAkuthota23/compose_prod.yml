@@ -1,21 +1,11 @@
 version: '3'
-
 services:
   web:
-    image: "redis:alpine"
-    restart: always
-    networks:
-      - production_network
+    build: .
+    ports:
+      - "8000:5000"
     environment:
-      - FLASK_ENV=production
-    # Add other production-specific configurations
-
+      - NODE_ENV=production
+    restart: always
   redis:
     image: "redis:alpine"
-    restart: always
-    networks:
-      - production_network
-
-networks:
-  production_network:
-    driver: bridge
