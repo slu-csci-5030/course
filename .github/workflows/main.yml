@@ -25,4 +25,4 @@ jobs:
         run: docker login -u vineeth173 -p Vineeth@05
 
       - name: Push Docker image
-        run: docker push my-astro-app
+        run: docker push vineeth173/my-astro-app:v1.0
