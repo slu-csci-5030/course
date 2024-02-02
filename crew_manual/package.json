@@ -1,5 +1,4 @@
 {
-  "main":"index.astro",
   "name": "csci-5030",
   "type": "module",
   "version": "0.0.1",
