@@ -1,16 +1,29 @@
-version: "3"
-services:
-  app:
-    # image: "your-app-image"
-    ports:
-      - "8080:80"
-    volumes:
-      - ./app:/app
-    environment:
-      - NODE_ENV=development
-  # db:
-  #   image: postgres:latest
-  #   environment:
-  #     - POSTGRES_DB=your_database
-  #     - POSTGRES_USER=your_user
-  #     - POSTGRES_PASSWORD=your_password
+name: Automated Tests
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    services:
+      app:
+        image: "your-app-image"
+        ports:
+          - "8080:80"
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Docker Compose
+        uses: docker/compose-action@v2
+        with:
+          compose-file: docker-compose.yml
+
+      - name: Run Tests
+        run: |
+          docker-compose exec app npm test
