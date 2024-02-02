@@ -1,44 +1,25 @@
-## Docker File
-This line sets the base image for Docker container. In this case, it's node:latest-browsers, which is a Node.js image with additional browser dependencies.
-WORKDIR /usr/src/app =>  command sets the working directory within the container where subsequent commands will be executed.
-RUN sudo npm install -g @react/cli => line installs the React Command Line Interface (CLI) globally using npm.
-These lines copy files from your local directory into the Docker container:
-./Backend and ./Frontend directories are copied into /usr/src/app/Backend and /usr/src/app/Frontend directories respectively.
-start.sh, package.json, and related files are copied into the /usr/src/app directory.
-CMD ["cd", "~"] => command changes the directory to the home directory (~). However, CMD directives only allow the last one to take effect, so this line effectively doesn't do anything since it's overridden by the subsequent CMD directive
-few last lines run npm install commands within the container to install dependencies specified in package.json. It installs dependencies forcefully and globally for socket.io and http-server.
-The docker  expose ports 8080 from the container to the host system, allowing external connections to services running on that port.
-This command specifies the command to run when the container starts. It runs the shell script start.sh located in the current directory.
+## Overview
 
+Here i created an express js application named dockerpractice-psd.
 
+In the dockerpractice.psd folder(express application) i written Dockerfile, docker-compose.yml, test.yml and docker-compose.prod.yml. All the files with application code is under the yrlmanoharreddy/dockerpractice.psd folder
 
-## Docker-Compose.yml file
+However i written all the docker files separately under github username folder or under the same folder(yrlmanoharreddy)
 
-The configuration defines two jobs:
+## Please look into the yrlmanoharreddy/dockerpractice-psd, where i created application and done all the local set up 
+For the starting of application:
+ ## Docker File
 
-React Test Job:
+Dockerfile is needed to write all the 
 
-This job is named react-test.
-It uses a Docker image based on node:latest-browsers.
-The environment variable NPM_CONFIG_PREFIX is set to ~/.npm-global.
-The job consists of steps to install React dependencies and run frontend test cases using npm.
-Frontend tests are executed in headless Chrome.
-Build and Push Job:
+The Dockerfile sets up a Node.js environment using the node:21-alpine base image. It installs nodemon, copies project files (package.json, bin/www, etc.), and runs npm install to install dependencies. Port 3000 is exposed for external access, and the default command (npm start) launches the Node.js application. This Dockerfile streamlines containerization, ensuring a portable and consistent environment for running Node.js applications.
 
-This job is named build_and_push.
-It also uses the node:latest-browsers Docker image.
-Steps include checking out the code, setting up remote Docker, building a Docker image for the project, authenticating with Docker Hub, and pushing the Docker image to the repository.
-The workflow includes two pipelines:
+## docker-Compose.yml file
 
-Testcases Workflow:
+The Docker Compose file defines a service named dockerpractice-psd, specifying the build context and Dockerfile location. It maps port 3000 of the container to port 3000 on the host machine and sets the NODE_ENV environment variable to development. This file simplifies the deployment of the associated Dockerfile-based service, enabling consistent configuration and ease of management for the development environment.
 
-This workflow is named Testcases.
-It comprises the node/run job for backend tests and the react-test job for frontend tests.
-Build and Deploy Workflow:
+## test.yml
+The provided GitHub Actions workflow, named "Test," triggers on both push and pull request events occurring on the main branch. It defines a single job called "test" that runs on the latest Ubuntu environment. The job comprises steps: checking out the code, setting up Node.js version 14, installing dependencies via npm, and executing tests using npm. This workflow automates the testing process, ensuring code quality and consistency in the main branch of the repository.
 
-This workflow is named build_and_deploy.
-It includes only the build_and_push job, which builds the Docker image and pushes it to Docker Hub.
-
-
-
-I'm planning to create CI/CD pipeline for my project. So, that it can continuously integrate and deploy the code whenever i push the code into github then it build, run the test cases and deploy one after one automatically
+## docker-compose.prod.yml
+The provided Docker Compose file defines a service named dockerpractice-psd using the image dockerpracticee:1.0. It also specifies a build context and Dockerfile location for building the image. Port 3000 of the container is mapped to port 3000 on the host machine, and the NODE_ENV environment variable is set to production. This configuration facilitates the deployment of the specified Dockerfile-based service, ensuring it runs in a production environment with the specified settings.
