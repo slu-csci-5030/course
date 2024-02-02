@@ -8,9 +8,4 @@ services:
       - ./app:/app
     environment:
       - NODE_ENV=development
-  db:
-    image: postgres:latest
-    environment:
-      - POSTGRES_DB=your_database
-      - POSTGRES_USER=your_user
-      - POSTGRES_PASSWORD=your_password
+  
