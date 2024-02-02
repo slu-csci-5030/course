@@ -6,6 +6,9 @@ In the dockerpractice.psd folder(express application) i written Dockerfile, dock
 
 However i written all the docker files separately under github username folder or under the same folder(yrlmanoharreddy)
 
+## Docker can be created and run using the following command
+    docker-compose up
+
 ## Please look into the yrlmanoharreddy/dockerpractice-psd, where i created application and done all the local set up 
 For the starting of application:
  ## Docker File
