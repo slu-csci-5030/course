@@ -3,7 +3,7 @@ name: Docker Build and Push
 on:
   push:
     branches:
-      - estimation-github-alar12-240131
+      - estimation-github-nani1606-20240130
 
 jobs:
   build:
@@ -19,10 +19,10 @@ jobs:
       - name: Build Docker image
         run: |
           cd crew_manual
-          docker build -t krishnani/my-app .
+          docker build -t krishnani/my-app1 .
 
       - name: Log in to Docker Hub
         run: docker login -u krishnani -p Vaish@123
 
       - name: Push Docker image
-        run: docker push krishnani/my-app
+        run: docker push krishnani/my-app1
