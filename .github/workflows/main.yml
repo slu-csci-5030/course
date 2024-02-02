@@ -19,10 +19,10 @@ jobs:
       - name: Build Docker image
         run: |
           cd crew_manual
-          docker build -t my-astro-app .
+          docker build -t vineeth173/my-astro-app .
 
       - name: Log in to Docker Hub
         run: docker login -u vineeth173 -p Vineeth@05
 
       - name: Push Docker image
-        run: docker push vineeth173/my-astro-app:v1.0
+        run: docker push vineeth173/my-astro-app
