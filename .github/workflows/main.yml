@@ -26,3 +26,7 @@ jobs:
 
       - name: Push Docker image
         run: docker push vineeth173/my-astro-app
+      
+      - name: Run Docker container
+        run: docker run -d -p 3000:4321 vineeth173/my-astro-app  
+      
