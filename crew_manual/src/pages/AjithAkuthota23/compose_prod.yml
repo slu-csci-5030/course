@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  web:
+    image: "redis:alpine"
+    restart: always
+    networks:
+      - production_network
+    environment:
+      - FLASK_ENV=production
+    # Add other production-specific configurations
+
+  redis:
+    image: "redis:alpine"
+    restart: always
+    networks:
+      - production_network
+
+networks:
+  production_network:
+    driver: bridge
