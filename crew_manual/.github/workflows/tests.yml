@@ -24,6 +24,10 @@ jobs:
         with:
           compose-file: docker-compose.yml
 
+      - name: Install Dependencies
+        run: |
+          docker-compose run app npm install
+
       - name: Run Tests
         run: |
           docker-compose exec app npm test
