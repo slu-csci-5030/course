@@ -1,0 +1,39 @@
+version: 3.0
+
+jobs:
+  test_backend:
+    docker:
+      - image: maven:3.8.3-jdk-11  # Maven with JDK 11 for Java applications
+    steps:
+      - checkout
+      - run:
+          name: Build and Test Backend
+          command: mvn clean install
+
+  build_and_push_frontend:
+    docker:
+      - image: node:16  # Node.js version 16 for Angular applications
+    steps:
+      - checkout
+      - run:
+          name: Install Angular Dependencies
+          command: cd ~/project/Frontend && npm ci
+      - run:
+          name: Build Angular Application
+          command: cd ~/project/Frontend && npm run build
+      - run:
+          name: Build Docker Image for Frontend
+          command: docker build -t $DOCKERHUB_USERNAME/angular-app:v1 ~/project/Frontend
+      - run:
+          name: Authenticate with Docker Hub
+          command: echo "$DOCKERHUB_PASS" | docker login --username $DOCKERHUB_USERNAME --password-stdin
+      - run:
+          name: Push Docker Image to Docker Hub
+          command: docker push $DOCKERHUB_USERNAME/angular-app:v1
+
+workflows:
+  version: 3
+  test_and_deploy:
+    jobs:
+      - test_backend
+      - build_and_push_frontend

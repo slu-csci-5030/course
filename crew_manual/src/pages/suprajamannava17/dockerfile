@@ -1,0 +1,18 @@
+FROM java:latest-browsers
+
+# Set the working directory 
+WORKDIR /usr/src/app
+
+# Install the Angular
+RUN npm install -g @react/cli 
+
+# Copy the frontend directories
+COPY ./Frontend ./Frontend
+
+# Install dependencies
+
+# Ports
+EXPOSE 8080
+
+# Run start script
+CMD ["sh", "./start.sh"]
