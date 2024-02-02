@@ -5,7 +5,7 @@
 During this process I learned how to use docker in local environment. How to connect to the git with VS code. 
 In this process I have faced many issues with docker. I got WSL error while installing the docker then I 
  followed steps from (([url](https://stackoverflow.com/questions/76160943/docker-desktop-an-unexpected-error-was-encountered-while-executing-a-wsl-comma)) to correct it. 
-I created few files in my branch to connect with docker for that I followed ([url](https://docs.docker.com/compose/gettingstarted/))"https://docs.docker.com/compose/gettingstarted/"
+I created few files in my branch to connect with docker for that I followed (([url](https://docs.docker.com/compose/gettingstarted/)))"https://docs.docker.com/compose/gettingstarted/"
 
 This is the course repo for Saint Louis Univeristy Computer Science 5030, "Principles of Software Development". When working on activities for the entire class, students should submit work here. When working on team projects, each team should use the team project repo. This repo is intended to help the class work together towards our common goals. Students will primarily use this repo as a way to reflect on progress and share resources. This repo is primarily a navigational tool. Students should ask themselves regularly, "Am I on `course`?". If you are on course, you are headed in the right direction.
 
