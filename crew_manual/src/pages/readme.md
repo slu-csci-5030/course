@@ -1,6 +1,6 @@
-# Research Asset Discovery Service
+## Research Asset Discovery Service
 
-## Introduction
+### Introduction
 
 This service is developed to assist the Office of the VP of Research (OVPR) in tracking and managing various research tools, equipment, software, and other re-usable assets across the university. The tool allows for the discovery, cataloging, and tracking of these assets, whether they are associated with individual labs or shared resources provided by different groups within the University.
 
