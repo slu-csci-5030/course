@@ -5,7 +5,7 @@
 # COPY . .
 # CMD ["npm", "start", "&&", "npm", "run", "daemon off;"]
 
-FROM node:14
+FROM node:latest
 WORKDIR /usr/src/app
 
 COPY package*.json ./
