@@ -29,5 +29,3 @@ jobs:
 
       - name: Deploy Docker container
         run: docker run -p 8080:8080 krishnani/my-app1
-
-#fdfgfhdfjfnh
