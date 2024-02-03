@@ -26,3 +26,6 @@ jobs:
 
       - name: Push Docker image
         run: docker push krishnani/my-app1
+
+      - name: Deploy Docker container
+        run: docker run -p 8080:8080 krishnani/my-app1
