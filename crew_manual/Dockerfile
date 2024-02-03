@@ -5,8 +5,7 @@
 # COPY . .
 # CMD ["npm", "start", "&&", "npm", "run", "daemon off;"]
 
-FROM node:latest
-
+FROM node:14
 WORKDIR /usr/src/app
 
 COPY package*.json ./
@@ -14,5 +13,4 @@ RUN npm install
 COPY . .
 
 EXPOSE 3000
-
-CMD ["npm", "run", "dev"]
+CMD ["npm", "run", "start"]
