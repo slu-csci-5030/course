@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 ---
 
-<Layout title="5030 Crew Manual.">
+<Layout title="Welcome to Astro.">
 	<main>
 		<svg
 			class="astro-a"
@@ -33,16 +33,10 @@ import Card from '../components/Card.astro';
 				</linearGradient>
 			</defs>
 		</svg>
-		<h1>CSCI-<span class="text-gradient">5030 Principles</span> of
-		<br />Software Development</h1>
+		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
 		<p class="instructions">
-			This is the <code>crew_manual</code> for CSCI-5030 Principles of Software Development.<br />
-			It is built using the <strong><a href="https://astro.build/">Astro</a></strong> framework. Check out the 
-			<a href="https://docs.astro.build/en/getting-started/">official documentation</a>.
-		</p>
-		<p class="instructions">
-			To get started, clone the repo and open the directory <code>crew_manual/src/pages</code>.<br />
-			<strong>Code Challenge:</strong> Add your name to the "Crew Roster" below with a <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request">Pull Request</a>. 
+			To get started, open the directory <code>src/pages</code> in your project.<br />
+			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
 		</p>
 		<ul role="list" class="link-card-grid">
 			<Card
@@ -61,19 +55,10 @@ import Card from '../components/Card.astro';
 				body="Explore a galaxy of community-built starter themes."
 			/>
 			<Card
-				href="https://join.slack.com/t/slu503003fall22/shared_invite/zt-29l1901nb-e40OPGN6fb_IVbrasyp8pw"
+				href="https://astro.build/chat/"
 				title="Community"
-				body="Come say hi to our amazing Slack community. 💫"
+				body="Come say hi to our amazing Discord community. ❤️"
 			/>
-		</ul>
-		<h2>Crew Roster</h2>
-		<ul>
-			<h3>Senior Officers</h3>
-			<li>Daniel, Instructor</li>
-			<li>Param, TA</li>
-			<li>Vyshnavi Rao, Grader</li>
-			<h3>Ensigns</h3>
-			<li>Yenkatarajalaxmimanohar Meda</li>
 		</ul>
 	</main>
 </Layout>
@@ -94,7 +79,6 @@ import Card from '../components/Card.astro';
 		left: 50%;
 		transform: translatex(-50%);
 		width: 220px;
-		color: white;
 		height: auto;
 		z-index: -1;
 	}
@@ -129,9 +113,6 @@ import Card from '../components/Card.astro';
 	}
 	.instructions strong {
 		color: rgb(var(--accent-light));
-	}
-	.instructions a {
-		color: white;
 	}
 	.link-card-grid {
 		display: grid;
