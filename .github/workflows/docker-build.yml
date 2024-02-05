@@ -19,7 +19,7 @@ jobs:
       - name: Build Docker image
         run: |
           cd crew_manual
-          docker build -t raghunathk01/materialdonar .
+          docker build -t raghunath9493/materialdonar .
 
       - name: Log in to Docker Hub
         run: docker login -u raghunathk01 -p Kunidoc@1998
