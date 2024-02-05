@@ -19,13 +19,13 @@ jobs:
       - name: Build Docker image
         run: |
           cd crew_manual
-          docker build -t raghunath01/materialdonar .
+          docker build -t raghunathk01/materialdonar .
 
       - name: Log in to Docker Hub
         run: docker login -u raghunathk01 -p Kunidoc@1998
 
       - name: Push Docker image
-        run: docker push raghunath01/materialdonar
+        run: docker push raghunathk01/materialdonar
 
       - name: Deploy Docker container
         run: docker run -p 8080:8080 raghunath01/materialdonar
