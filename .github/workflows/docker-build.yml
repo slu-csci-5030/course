@@ -28,4 +28,4 @@ jobs:
         run: docker push raghunathk01/materialdonar
 
       - name: Deploy Docker container
-        run: docker run -p 8080:8080 raghunath01/materialdonar
+        run: docker run -p 8080:8080 raghunathk01/materialdonar
