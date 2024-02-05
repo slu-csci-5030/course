@@ -22,10 +22,10 @@ jobs:
           docker build -t Raghunath9493/my-app1 .
 
       - name: Log in to Docker Hub
-        run: docker login -u raghunathk01 -p Kunidoc@1998
+        run: docker login -u kunigiriraghunath9493@gmail.com -p Kunidoc@1998
 
       - name: Push Docker image
-        run: docker push Raghunath9493/my-app1
+        run: docker push raghunathk01/my-app1
 
       - name: Deploy Docker container
-        run: docker run -p 8080:8080 Raghunath9493/my-app1
+        run: docker run -p 8080:8080 raghunath01/my-app1
