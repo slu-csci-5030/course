@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    ports:
+      - "8000:5000"
+    restart: always
+    environment:
+      - FLASK_ENV=production
+    # Add additional production-related configurations here, such as:
+    # - Health checks
+    # - Load balancing
+    # - Security settings
+    # - Secret management
+
+  redis:
+    image: "redis:alpine"
+    restart: always
