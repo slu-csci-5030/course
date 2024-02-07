@@ -30,4 +30,4 @@ jobs:
           TAG: latest
         run: |
           cd crew_manual
-          docker buildx build --platform linux/amd64,linux/arm64 -t $IMAGE_NAME:$TAG . --push
+          docker buildx build --platform linux/amd64,linux/arm64 -t $raghunathk01/materialdonor:$TAG . --push
