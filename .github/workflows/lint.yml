@@ -1,4 +1,4 @@
-name: Code Linting and Pull Request
+name: Code Linting
 
 on:
   pull_request:
@@ -23,20 +23,3 @@ jobs:
 
       - name: Run ESLint
         run: npm run lint
-
-  create_pull_request:
-    needs: lint
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-        with:
-          ref: ${{ github.head_ref }}
-      
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v3
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: 'Auto-generated code linting fixes'
-          title: 'Auto-generated code linting fixes'
-          body: 'This pull request was automatically created by the Code Linting workflow.'
