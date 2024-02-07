@@ -19,12 +19,12 @@ jobs:
       - name: Build Docker image
         run: |
           cd crew_manual
-          docker build -t devipriyakolla/my-app1 .
+          docker build -t devipriyakolla/app .
 
       - name: Log in to Docker Hub
         run: docker login -u devipriyakolla -p Priya@123
 
       - name: Push Docker image
-        run: docker push devipriyakolla/my-app1
+        run: docker push devipriyakolla/app
 
       
