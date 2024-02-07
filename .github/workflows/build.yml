@@ -18,14 +18,14 @@ jobs:
 
       - name: Build Docker image
         run: |
-          cd crew_manual
-          docker build -t devipriyakolla/app:${{ github.sha }} .
+          cd course/crew_manual
+          docker build -t devipriyakolla/app .
 
       - name: Log in to Docker Hub
         uses: docker/login-action@v1
         with:
           username: devipriyakolla
-          password: ${{ secrets.DOCKER_HUB_PASSWORD }}
+          password: Priya@123
 
       - name: Push Docker image
         run: docker push devipriyakolla/app:${{ github.sha }}
