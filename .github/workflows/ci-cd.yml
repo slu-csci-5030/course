@@ -1,0 +1,25 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  lint:
+    name: Code Linting
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+      
+      - name: Install Dependencies
+        run: npm install  # Or whatever command is appropriate for your project
+
+      - name: Run Linter
+        run: npm run lint  # Or the linting command for your project
+
+  # Add more jobs for testing, building, deployment, etc. as needed
