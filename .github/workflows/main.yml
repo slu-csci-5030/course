@@ -28,5 +28,5 @@ jobs:
         run: docker push sowmyamutya143/my-astro-app
       
       - name: Run Docker container
-        run: docker run -d -p 4321:3000 sowmyamutya143/my-astro-app; Start-Process "http://localhost:3000"
+        run: docker run -d -p 4321:3000 sowmyamutya143/my-astro-app; 
       
