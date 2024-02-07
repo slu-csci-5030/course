@@ -18,8 +18,8 @@ jobs:
 
       - name: Build Docker image
         run: |
-          cd crew_manual
           docker build -t devipriyakolla/astro-application .
+        working-directory: crew_manual
 
       - name: Log in to Docker Hub
         run: docker login -u devipriyakolla -p Priya@123
@@ -32,11 +32,3 @@ jobs:
 
       - name: Lint code
         run: eslint **/*.js
-        
-
-
-
-
-
-
-
