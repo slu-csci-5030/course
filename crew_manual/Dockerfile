@@ -1,29 +1,22 @@
-name: Automated Tests
+# Install a supported version of Node.js
+FROM node:18.14.1
 
-on:
-  push:
-    branches:
-      - main
+# Set the working directory
+WORKDIR /crew_manual
 
-jobs:
-  test:
-    runs-on: ubuntu-latest
+# Copy package.json and package-lock.json to the working directory
+COPY package*.json ./
 
-    services:
-      app:
-        image: your-app-image
-        ports:
-          - "8080:80"
+# Install npm dependencies
+RUN npm install
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+# Copy the rest of the application code
+COPY . .
 
-      - name: Set up Docker Compose
-        uses: docker/compose-action@v2
-        with:
-          compose-file: docker-compose.yml
+# Your other Dockerfile instructions...
 
-      - name: Run Tests
-        run: |
-        
+# Expose the port that Astro uses (default is 3000)
+EXPOSE 3000
+
+# Command to run Astro in development mode
+CMD ["npm", "run", "dev"]

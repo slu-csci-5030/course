@@ -1,16 +1,9 @@
-version: "3"
+version: '3'
 services:
   app:
-    image: your-app-image
+    image: psd:latest
     ports:
-      - "8080:80"
-    volumes:
-      - ./app:/app
+      - "80:80"
     environment:
-      - NODE_ENV=development
-  # db:
-  #   image: postgres:latest
-  #   environment:
-  #     - POSTGRES_DB=your_database
-  #     - POSTGRES_USER=your_user
-  #     - POSTGRES_PASSWORD=your_password
+      - NODE_ENV=production
+    # Add production-specific configurations he
