@@ -22,7 +22,7 @@ jobs:
           docker build -t sowmyamutya143/my-astro-app .
 
       - name: Log in to Docker Hub
-        run: docker login -u sowmyamutya143 -p Sow@120500
+        run: docker login -u sowmyamutya143 -p Sowmya@123
 
       - name: Push Docker image
         run: docker push sowmyamutya143/my-astro-app
