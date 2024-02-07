@@ -1,0 +1,29 @@
+name: Docker Build and Push
+
+on:
+  push:
+    branches:
+      - estimation-RohitReddyy-240129 
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Docker
+        run: docker --version
+
+      - name: Build Docker image
+        run: |
+          cd crew_manual
+          docker build -t rohitreddyy/my-astro-app .
+
+      - name: Log in to Docker Hub
+        run: docker login -u rohitreddyy -p Rohit@123
+
+      - name: Push Docker image
+        run: docker push rohitreddyy/my-astro-app
+      
