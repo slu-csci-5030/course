@@ -28,4 +28,7 @@ jobs:
         run: docker push navyasreeyellina/astro-application
 
       - name: Run Docker container
-        run: docker run -d -p 4321:3000 navyasreeyellina/astro-application;
+        run: docker run -d -p 4321:3000 navyasreeyellina/astro-application
+
+      - name: Lint code
+        run: eslint **/*.js
