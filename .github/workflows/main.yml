@@ -1,0 +1,31 @@
+name: Docker Build and Push
+
+on:
+  push:
+    branches:
+      - estimation-github-pawar-ashwin-240130
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Docker
+        run: docker --version
+
+      - name: Build Docker image
+        run: |
+          cd crew_manual
+          docker build -t pashwin03/astro-application .
+
+      - name: Log in to Docker Hub
+        run: docker login -u pashwin03 -p Ashwin@123
+
+      - name: Push Docker image
+        run: docker push pashwin03/astro-application
+
+      - name: Run Docker container
+        run: docker run -d -p 4321:3000 pashwin03/astro-application;
