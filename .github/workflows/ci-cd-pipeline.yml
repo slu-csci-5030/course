@@ -3,10 +3,10 @@ name: CI/CD Pipeline
 on:
   push:
     branches:
-      - estimation-github-NavyaSreeYellina-20000226
+      - main
   pull_request:
     branches:
-      - estimation-github-NavyaSreeYellina-20000226
+      - main
 
 jobs:
   build:
