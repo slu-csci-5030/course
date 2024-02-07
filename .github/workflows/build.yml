@@ -18,7 +18,7 @@ jobs:
 
       - name: Build Docker image
         run: |
-          cd course/crew_manual/src/pages/DeviPriyaKolla
+          cd course/crew_manual
           docker build -t devipriyakolla/app:${{ github.sha }} .
 
       - name: Log in to Docker Hub
