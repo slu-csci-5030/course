@@ -19,13 +19,13 @@ jobs:
       - name: Build Docker image
         run: |
           cd crew_manual
-          docker build -t Pashwin03/astro-application .
+          docker build -t pashwin03/astro-application .
 
       - name: Log in to Docker Hub
-        run: docker login -u Pashwin03 -p Ashwin@123
+        run: docker login -u pashwin03 -p Ashwin@123
 
       - name: Push Docker image
-        run: docker push Pashwin03/astro-application
+        run: docker push pashwin03/astro-application
 
       - name: Run Docker container
-        run: docker run -d -p 4321:3000 Pashwin03/astro-application;
+        run: docker run -d -p 4321:3000 pashwin03/astro-application;
