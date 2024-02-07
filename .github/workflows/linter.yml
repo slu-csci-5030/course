@@ -13,5 +13,5 @@ jobs:
       - name: Run Super-Linter
         uses: github/super-linter@latest
         env:
-          DEFAULT_BRANCH: main
+          DEFAULT_BRANCH: estimation-github-jacksayshi-20240131
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
