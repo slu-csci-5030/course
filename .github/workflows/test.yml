@@ -1,28 +1,30 @@
-name: Test
+name: Docker Build and Push
 
 on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 14
+      - name: Set up Docker
+        run: docker --version
 
-      - name: Install dependencies
-        run: npm install
+      - name: Build Docker image
+        run: |
+          cd crew_manual
+          docker build -t yrlmanoharreddy/yrl-astroapp .
+      - name: Log in to Docker Hub
+        run: docker login -u yrlmanoharreddymeda -p Manohar123%
 
-      - name: Run tests
-        run: npm test
+      - name: Push Docker image
+        run: docker push yrlmanoharreddy/yrl-astroapp
+      
+      - name: Run Docker container
+        run: docker run -d -p 4321:3000 yrlmanoharreddy/yrl-astroapp;
