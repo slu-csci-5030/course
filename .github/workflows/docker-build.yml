@@ -1,0 +1,31 @@
+name: Docker Build and Push
+
+on:
+  push:
+    branches:
+      - estimation-github-Pranithapadala-240131
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Docker
+        run: docker --version
+
+      - name: Build Docker image
+        run: |
+          cd crew_manual
+          docker build -t pranithapadala/my-app1 .
+
+      - name: Log in to Docker Hub
+        run: docker login -u pranithapadala -p Sweety@1901
+
+      - name: Push Docker image
+        run: docker push pranithapadala/my-app1
+
+      # - name: Deploy Docker container
+      #   run: docker run -p 8080:8080 pranithapadala/my-app1
