@@ -6,27 +6,25 @@ on:
       - estimation-github-DeviPriyaKolla-240130
 
 jobs:
-  build_and_push:
+  build:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v1
+      - name: Set up Docker
+        run: docker --version
 
-      - name: Display Docker Buildx version
-        run: docker buildx version
-
-      - name: Display Docker Buildx builders
-        run: docker buildx ls
-
-      - name: Build and push Docker image
-        env:
-          DOCKER_USERNAME: ${{ secrets.devipriyakolla }}
-          DOCKER_PASSWORD: ${{ secrets.Priya@123}}
-          TAG: latest
+      - name: Build Docker image
         run: |
           cd crew_manual
-          docker buildx build --platform linux/amd64,linux/arm64 -t $devipriyakolla:$TAG . --push
+          docker build -t devipriyakolla/my-app1 .
+
+      - name: Log in to Docker Hub
+        run: docker login -u devipriyakolla -p Priya@123
+
+      - name: Push Docker image
+        run: docker push devipriyakolla/my-app1
+
+      
