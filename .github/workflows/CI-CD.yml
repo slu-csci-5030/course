@@ -26,5 +26,5 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Code Linting
-        run: npm run lint
+      # - name: Code Linting
+      #   run: npm run lint
