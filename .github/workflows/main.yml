@@ -1,0 +1,31 @@
+name: Docker Build and Push
+
+on:
+  push:
+    branches:
+      - estimation-github-ajaykumar-240131
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Docker
+        run: docker --version
+
+      - name: Build Docker image
+        run: |
+          cd crew_manual
+          docker build -t ajaykumar9680/astro-application .
+
+      - name: Log in to Docker Hub
+        run: docker login -u ajaykumar9680 -p Ajay@123
+
+      - name: Push Docker image
+        run: docker push ajaykumar9680/astro-application
+
+      - name: Run Docker container
+        run: docker run -d -p 4321:3000 ajaykumar9680/astro-application;
