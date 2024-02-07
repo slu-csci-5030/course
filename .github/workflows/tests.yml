@@ -1,0 +1,30 @@
+name: Docker Build and Push
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Docker
+        run: docker --version
+
+      - name: Build Docker image
+        run: |
+          cd crew_manual
+          docker build -t deepakpvsn/my-astro-app .
+      - name: Log in to Docker Hub
+        run: docker login -u deepakpvsn -p AbdVirat1718
+
+      - name: Push Docker image
+        run: docker push deepakpvsn/my-astro-app
+      
+      - name: Run Docker container
+        run: docker run -d -p 4321:3000 deepakpvsn/my-astro-app;
