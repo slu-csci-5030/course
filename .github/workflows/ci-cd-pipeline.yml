@@ -3,43 +3,19 @@ name: CI/CD Pipeline
 on:
   push:
     branches:
-      - estimation-github-NavyaSreeYellina-20000226
+      - main
   pull_request:
     branches:
-      - estimation-github-NavyaSreeYellina-20000226
+      - main
+
 jobs:
-  build-and-deploy:
+  lint:
     runs-on: ubuntu-latest
 
-    services:
-      docker:
-        image: docker:20.10.11
-        ports:
-         - "8080:80"
     steps:
-      - name: Checkout Repository
+      - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up Docker
-        run: docker --version
-
-      - name: Build Docker image
-        run: |
-          cd crew_manual
-          docker build -t navyasreeyellina/astro-application .
-      - name: Log in to Docker Hub
-        run: docker login -u navyasreeyellina -p Navya@123
-
-      - name: Push Docker image
-        run: docker push navyasreeyellina/astro-application
-
-      - name: Run Docker container
-        run: docker run -d -p 4321:3000 navyasreeyellina/astro-application;
-  lint:
-   runs-on: ubuntu-latest
-   steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
@@ -48,9 +24,5 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run ESLint
-        run: npm run lint
-
-   
-
-      
+      # - name: Run ESLint
+      #   run: npm run lint
