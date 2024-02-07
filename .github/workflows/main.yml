@@ -19,14 +19,14 @@ jobs:
       - name: Build Docker image
         run: |
           cd crew_manual
-          docker build -t SaiJoshika/my-astro-app .
+          docker build -t saijoshikareddy07/my-astro-app .
 
       - name: Log in to Docker Hub
-        run: docker login -u ssaijoshikareddy07 -p Joshika@72000
+        run: docker login -u saijoshikareddy07 -p Joshika@72000
 
       - name: Push Docker image
-        run: docker push saiJoshika/my-astro-app
+        run: docker push saijoshikareddy07/my-astro-app
       
       - name: Run Docker container
-        run: docker run -d -p 4321:3000 aiJoshika/my-astro-app; 
+        run: docker run -d -p 4321:3000 saijoshikareddy07/my-astro-app; 
       
