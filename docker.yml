@@ -1,0 +1,28 @@
+name: Docker 
+
+on:
+  push:
+    branches:
+      - estimation-github-Pranithapadala-240131
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Docker
+        run: docker --version
+
+      - name: Build Docker image
+        run: |
+          cd crew_manual
+          docker build -t Pranithapadala/new .
+
+      - name: Log in to Docker Hub
+        run: docker login -u Pranithapadala -p Sweety@1901
+
+      - name: Push Docker image
+        run: docker push Pranithapadala/new
