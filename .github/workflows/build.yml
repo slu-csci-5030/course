@@ -18,17 +18,17 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t devipriyakolla/astro-application .
+          docker build -t devipriyakolla/app .
         working-directory: crew_manual
 
       - name: Log in to Docker Hub
         run: docker login -u devipriyakolla -p Priya@123
 
       - name: Push Docker image
-        run: docker push devipriyakolla/astro-application
+        run: docker push devipriyakolla/app
 
       - name: Run Docker container
-        run: docker run -d -p 4321:3000 devipriyakolla/astro-application
+        run: docker run -d -p 4321:3000 devipriyakolla/app
 
       - name: Lint code
         run: eslint **/*.js
