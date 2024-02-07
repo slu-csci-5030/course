@@ -19,12 +19,12 @@ jobs:
       - name: Build Docker image
         run: |
           cd crew_manual
-          docker build -t yrlmanoharreddy/yrl-astroapp .
+          docker build -t yrlmanoharreddymeda/yrl-astroapp .
       - name: Log in to Docker Hub
         run: docker login -u yrlmanoharreddymeda -p Manohar123%
 
       - name: Push Docker image
-        run: docker push yrlmanoharreddy/yrl-astroapp
+        run: docker push yrlmanoharreddymeda/yrl-astroapp
       
       - name: Run Docker container
-        run: docker run -d -p 4321:3000 yrlmanoharreddy/yrl-astroapp;
+        run: docker run -d -p 4321:3000 yrlmanoharreddymeda/yrl-astroapp;
