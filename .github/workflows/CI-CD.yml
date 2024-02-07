@@ -4,9 +4,11 @@ on:
   push:
     branches:
       - Estimation-github-Raghunath9493-200130
+      - main
   pull_request:
     branches:
     - Estimation-github-Raghunath9493-200130
+    - main 
   
       
 
