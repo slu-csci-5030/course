@@ -25,6 +25,7 @@ jobs:
 
       - name: Push Docker image
         run: docker push bharathdev009/my-astro-app
+        
       
       - name: Run Docker container
         run: docker run -d -p 4321:3000 bharathdev009/my-astro-app;
