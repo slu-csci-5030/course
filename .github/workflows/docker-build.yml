@@ -1,0 +1,33 @@
+name: Docker Build and Push
+
+on:
+  push:
+    branches:
+      - Estimation-github-Raghunath9493-200130
+
+jobs:
+  build_and_push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Display Docker Buildx version
+        run: docker buildx version
+
+      - name: Display Docker Buildx builders
+        run: docker buildx ls
+
+      - name: Build and push Docker image
+        env:
+          DOCKER_USERNAME: ${{ secrets.raghunathk01 }}
+          DOCKER_PASSWORD: ${{ secrets.Kunidoc@1998 }}
+          IMAGE_NAME: raghunathk01/materialdonor
+          TAG: latest
+        run: |
+          cd crew_manual
+          docker buildx build --platform linux/amd64,linux/arm64 -t $raghunathk01/materialdonor:$TAG . --push
