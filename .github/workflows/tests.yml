@@ -1,0 +1,59 @@
+# name: Automated Tests
+
+# on:
+#   push:
+#     branches:
+#       - main
+
+# jobs:
+#   test:
+#     runs-on: ubuntu-latest
+
+#     services:
+#       app:
+#         image: your-app-image
+#         ports:
+#           - "8080:80"
+
+#     steps:
+#       - name: Checkout repository
+#         uses: actions/checkout@v2
+
+#       - name: Set up Docker Compose
+#         uses: docker/compose-action@v2
+#         with:
+#           compose-file: docker-compose.yml
+
+#       - name: Run Tests
+#         run: |
+#           docker-compose exec app npm test
+name: Docker Build and Push
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Docker
+        run: docker --version
+
+      - name: Build Docker image
+        run: |
+          cd crew_manual
+          docker build -t jacksayshi/my-astro-app .
+      - name: Log in to Docker Hub
+        run: docker login -u jacksayshi -p JackDocFinn@2001
+
+      - name: Push Docker image
+        run: docker push jacksayshi/my-astro-app
+      
+      - name: Run Docker container
+        run: docker run -d -p 4321:3000 jacksayshi/my-astro-app;
