@@ -3,10 +3,10 @@ name: CI/CD Pipeline
 on:
   push:
     branches:
-      - estimation-github-nani1606-20240130
+      - main
   pull_request:
     branches:
-      - estimation-github-nani1606-20240130
+      - main
 
 jobs:
   linting:
