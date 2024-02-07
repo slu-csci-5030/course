@@ -1,0 +1,23 @@
+{
+  "name": "course",
+  "version": "1.0.0",
+  "description": "CI/CD Pipeline",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NavyaSreeYellina/course.git"
+  },
+  "author": "NavyaSreeYellina",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NavyaSreeYellina/course/issues"
+  },
+  "homepage": "https://github.com/NavyaSreeYellina/course#readme",
+  "dependencies": {
+    "eslint": "^8.6.0"
+  }
+}
