@@ -4,9 +4,11 @@ on:
   push:
     branches:
       - main
+      - estimation-github-yrlmanoharreddy-240131
   pull_request:
     branches:
       - main
+      - estimation-github-yrlmanoharreddy-240131
 
 jobs:
   lint:
