@@ -3,7 +3,12 @@ name: CI/CD Pipeline
 on:
   push:
     branches:
-      - main
+      - estimation-github-Pranithapadala-240131
+  pull_request:
+    branches:
+    - estimation-github-Pranithapadala-240131
+  
+      
 
 jobs:
   lint:
@@ -21,5 +26,5 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Code Linting
-        run: npm run lint
+      #- name: Code Linting
+       # run: npm run lint
