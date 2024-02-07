@@ -3,10 +3,10 @@ name: CI/CD Pipeline
 on:
   push:
     branches:
-      - main
+      - DeviPriya-Kolla
   pull_request:
     branches:
-      - main
+      - DeviPriya-Kolla
  
 jobs:
   lint:
