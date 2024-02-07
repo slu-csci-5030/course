@@ -22,7 +22,7 @@ jobs:
           docker build -t devipriyakolla/astro-application .
 
       - name: Log in to Docker Hub
-        run: docker login -u devipriyakolla -p Hymasekhar83*
+        run: docker login -u devipriyakolla -p Priya@123
 
       - name: Push Docker image
         run: docker push devipriyakolla/astro-application
@@ -40,15 +40,3 @@ jobs:
 
 
 
-      - name: Build Docker image
-        run: |
-          cd crew_manual
-          docker build -t devipriyakolla/my-astroapp .
-      - name: Log in to Docker Hub
-        run: docker login -u devipriyakolla -p Hymasekhar83*
-
-      - name: Push Docker image
-        run: docker push devipriyakolla/my-astroapp
-      
-      - name: Run Docker container
-        run: docker run -d -p 4321:3000 devipriyakolla/my-astroapp;
