@@ -1,0 +1,2 @@
+###Ajay Kumar Medikonda
+frontend is developed in reactjs and backend is developed in nodejs here we need to build the website on the pre existed one so using those deployment softwares would be helpful.
