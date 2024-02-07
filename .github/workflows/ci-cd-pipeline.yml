@@ -35,7 +35,7 @@ jobs:
 
       - name: Run Docker container
         run: docker run -d -p 4321:3000 navyasreeyellina/astro-application;
-lint:
+  lint:
    runs-on: ubuntu-latest
    steps:
       - name: Checkout Repository
@@ -52,10 +52,5 @@ lint:
         run: npm run lint
 
    
-   
-
-         steps:
-      # ... other steps ...
-          
 
       
